@@ -26,7 +26,7 @@ export async function login(formData: FormData) {
       .from("profiles")
       .select("role")
       .eq("id", user.id)
-      .single();
+      .single<{ role: UserRole }>();
     if (profile) role = profile.role;
   }
 
