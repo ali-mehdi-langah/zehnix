@@ -67,7 +67,7 @@ export async function overrideGrade(
   }
 
   const ctx = await requireTeacher();
-  if ("error" in ctx) return { ok: false, error: ctx.error };
+  if ("error" in ctx) return { ok: false, error: ctx.error as string };
   const { supabase } = ctx;
 
   // RLS only returns answers from this teacher's classes
@@ -122,7 +122,7 @@ export async function gradePendingAttempt(
   attemptId: string
 ): Promise<{ ok: true; graded: number; failed: number } | { ok: false; error: string }> {
   const ctx = await requireTeacher();
-  if ("error" in ctx) return { ok: false, error: ctx.error };
+  if ("error" in ctx) return { ok: false, error: ctx.error as string };
   const { supabase } = ctx;
 
   const { data: attempt } = await supabase
