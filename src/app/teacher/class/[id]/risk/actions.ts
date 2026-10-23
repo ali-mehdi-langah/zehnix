@@ -33,7 +33,7 @@ export async function sendNudge(
     student_id: studentId,
     teacher_id: user.id,
     message: text,
-  });
+  } as never);
 
   if (error) {
     console.error("sendNudge failed:", error);
